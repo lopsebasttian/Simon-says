@@ -3,6 +3,7 @@ let sequence = [];
 let userSequence = [];
 let score = 0;
 let playerName = "";
+let scores = JSON.parse(localStorage.getItem("scores")) || [];
 
 function createColorBoard() {
     const grid = document.getElementById("grid");
@@ -65,6 +66,7 @@ function checkUserSequence() {
     const lastIndex = userSequence.length - 1;
     if (userSequence[lastIndex] !== sequence[lastIndex]) {
         alert("Perdiste, tus puntos fueron: " + score);
+        endGame();
         return;
     }
     if (userSequence.length === sequence.length) {
@@ -81,3 +83,38 @@ function saveName() {
     alert("Nombre: " + playerName);
 }
 
+function saveScore() {
+    if (playerName && score >= 0) {
+        scores.push({ name: playerName, score: score });
+        localStorage.setItem("scores", JSON.stringify(scores));
+    } else {
+        alert("Error");
+    }
+}
+
+function displayScores() {
+    scores.sort((a, b) => b.score - a.score);
+    const scoreList = document.getElementById("scoreList");
+    scoreList.innerHTML = "";
+
+    scores.forEach((scoreEntry, index) => {
+        if (index < 5) {
+            const li = document.createElement("li");
+            li.textContent = `${scoreEntry.name}: ${scoreEntry.score}`;
+            scoreList.appendChild(li);
+        }
+    });
+}
+
+function clearScores() {
+    scores = [];
+    localStorage.removeItem("scores");
+    displayScores();
+}
+
+window.onload = displayScores;
+
+function endGame() {
+    saveScore(); 
+    displayScores(); 
+}

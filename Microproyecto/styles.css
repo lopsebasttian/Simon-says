@@ -88,3 +88,27 @@
 .name__input {
     margin: 20px;
 }
+
+.scoreboard{
+    margin: 20px;
+}
+
+#scoreList{
+    list-style-type: none;
+    padding: 0;
+}
+
+#scoreList li{
+    margin: 5px 0;
+}
+
+.clearScores{
+    padding: 10px 16px;
+    font-size: 16px;
+    background-color: lightblue;
+    color: black;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background_color 0.5s;
+}
