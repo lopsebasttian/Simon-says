@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simon Says</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1 class="header__title">Simon Says</h1>
+    </header>
+
+    <div class="game__container">
+        <div id="grid" class="game__grid"></div>
+    </div>
+    <div class="actions">
+        <button id="play-button" class="actions__button">Iniciar</button>
+    </div>
+    <div class="name__input">
+        <input type="text" id="name__player" class="input__name" placeholder="Ingrese su nombre">
+        <button id="submit__name" class = "submit__nameB">Listo</button>
+        
+    </div>
+    <div class = "info__player">
+        <div id = "player__name" class="player__name"></div>
+    </div>
+    <div class="game__info">
+        <div id="score">Puntuación: 0</div>
+    </div>
+    <div class="scoreboard">
+        <h2>Puntajes</h2>
+        <ul id="scoreList"></ul>
+        <button id="clearScores" class="clearScores" onclick="clearScores()">Limpiar historial de puntos</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
